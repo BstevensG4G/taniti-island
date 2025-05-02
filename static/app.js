@@ -48,14 +48,14 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
       detailsFile: "/details/bike.html"
     },
     {
-      title: "Island Ferry",
+      title: "Island Cruise",
       description: "Scenic and reliable cruise ship service between the mainland on a weekly basis.",
       image: "../static/images/cruise.jpg",
-      detailsId: "ferry-details",
-      detailsFile: "/details/ferry.html"
+      detailsId: "cruise-details",
+      detailsFile: "/details/cruise.html"
     },
     {
-      title: "Public Bus",
+      title: "Bus",
       description: "Affordable public transport with regular schedules around major locations.",
       image: "../static/images/bus.jpg",
       detailsId: "bus-details",
@@ -271,9 +271,4 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
         dropdown.classList.add('hidden');
       }, 200);
     });
-  });
-
-  document.getElementById('hamburger').addEventListener('click', () => {
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenu.classList.toggle('hidden');
   });

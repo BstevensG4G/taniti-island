@@ -8,17 +8,17 @@ dev:
 		air; \
 	else \
 		echo "Air not found. Falling back to manual run..."; \
-		go run ./cmd/web; \
+		go run ./cmd/web/main.go; \
 	fi
 
 # Build the app
 build:
-	go build -o taniti-island ./cmd/web
+	go build -o ./tmp/main ./cmd/web/main.go
 
 # Manually run without hot reload
 run:
-	go run ./cmd/web
+	go run ./cmd/web/main.go
 
 # Clean binaries
 clean:
-	rm -f taniti-island
+	rm -f tmp/main

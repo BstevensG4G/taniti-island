@@ -5,15 +5,15 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>
-			{{ if eq .Page "home" }}
+			{{ if eq .CurrentPath "/" }}
 				Home - Taniti Island
-			{{ else if eq .Page "booking" }}
+			{{ else if eq .CurrentPath "/booking" }}
 				Booking - Taniti Island
-			{{ else if eq .Page "transport" }}
+			{{ else if eq .CurrentPath "/transportation" }}
 				Transport - Taniti Island
-			{{ else if eq .Page "accommodation" }}
+			{{ else if eq .CurrentPath "/accommodation" }}
 				Accommodation - Taniti Island
-			{{ else if eq .Page "activity" }}
+			{{ else if eq .CurrentPath "/activity" }}
 				Activity - Taniti Island
 			{{ else }}
 				Taniti Island
@@ -36,15 +36,15 @@
 
 
 	<main class="flex-1 p-6">
-		{{ if eq .Page "home" }}
+		{{ if eq .CurrentPath "/" }}
 			{{ template "home"}}
-		{{ else if eq .Page "booking" }}
+		{{ else if eq .CurrentPath "/booking" }}
 			{{ template "booking"}}
-		{{ else if eq .Page "transport" }}
+		{{ else if eq .CurrentPath "/transportation" }}
 			{{ template "transport"}}
-		{{ else if eq .Page "accommodation" }}
+		{{ else if eq .CurrentPath "/accommodation" }}
 			{{ template "accommodation"}}
-		{{ else if eq .Page "activity" }}
+		{{ else if eq .CurrentPath "/activity" }}
 			{{ template "activity"}}
 		{{ else }}
 			<p>Page not found</p>

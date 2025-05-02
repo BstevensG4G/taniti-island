@@ -8,6 +8,6 @@ import (
 
 func BookingHandler(c echo.Context) error {
 	return c.Render(http.StatusOK, "base", map[string]any{
-		"Page": "booking",
+		"CurrentPath": c.Path(),
 	})
 }

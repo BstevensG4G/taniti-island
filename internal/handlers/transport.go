@@ -8,6 +8,6 @@ import (
 
 func TransportHandler(c echo.Context) error {
 	return c.Render(http.StatusOK, "base", map[string]any{
-		"Page": "transport",
+		"CurrentPath": c.Path(),
 	})
 }

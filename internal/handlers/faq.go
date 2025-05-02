@@ -6,7 +6,7 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func HomeHandler(c echo.Context) error {
+func FAQHandler(c echo.Context) error {
 	return c.Render(http.StatusOK, "base", map[string]any{
 		"CurrentPath": c.Path(),
 	})

@@ -8,6 +8,6 @@ import (
 
 func ActivityHandler(c echo.Context) error {
 	return c.Render(http.StatusOK, "base", map[string]any{
-		"Page": "activity",
+		"CurrentPath": c.Path(),
 	})
 }

@@ -8,6 +8,6 @@ import (
 
 func AccommodationHandler(c echo.Context) error {
 	return c.Render(http.StatusOK, "base", map[string]any{
-		"Page": "accommodation",
+		"CurrentPath": c.Path(),
 	})
 }

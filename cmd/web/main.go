@@ -42,10 +42,11 @@ func main() {
 	e.Renderer = renderer
 
 	e.GET("/", handlers.HomeHandler)
-	e.GET("/booking", handlers.BookingHandler)
 	e.GET("/transportation", handlers.TransportHandler)
 	e.GET("/accommodation", handlers.AccommodationHandler)
 	e.GET("/activity", handlers.ActivityHandler)
+	e.GET("/faq", handlers.FAQHandler)
+	e.GET("/booking", handlers.BookingHandler)
 
 	e.Logger.Fatal(e.Start(":8080"))
 }
