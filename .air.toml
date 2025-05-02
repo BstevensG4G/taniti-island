@@ -1,0 +1,15 @@
+root = "./"
+tmp_dir = "tmp"
+
+[build]
+cmd = "go build -o ./tmp/main ./cmd/web"
+bin = "./tmp/main"
+full_bin = true
+include_ext = ["go", "tmpl"]
+exclude_dir = ["tmp", "vendor"]
+
+[log]
+color = true
+
+[debug]
+force_polling = true

@@ -1,0 +1,36 @@
+:root {
+    color-scheme: light;
+    font-family: system-ui;
+  }
+  
+  body {
+    max-width: 1600px;
+    margin-inline: auto;
+    padding-inline: 1em;
+  }
+  
+  h1 {
+    text-align: center;
+    border-radius: 20px;
+  }
+
+  .glide__slide img {
+    height: 350px;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    .desktop-nav {
+      display: none;
+    }
+    .mobile-nav-toggle {
+      display: block;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .mobile-nav-toggle,
+    .mobile-nav {
+      display: none;
+    }
+  }

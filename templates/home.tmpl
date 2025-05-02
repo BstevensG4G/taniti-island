@@ -1,0 +1,74 @@
+{{ define "home" }}
+  <div>
+  <!-- Hero Text -->
+  <section class="text-center py-10 px-4 max-w-4xl mx-auto">
+    <p class="text-xl md:text-2xl font-medium">
+      Imagine the sound of waves, the warmth of the sun, and the soft white sand between your toes—Taniti is your island paradise.
+    </p>
+  </section>
+
+  <!-- Swipeable Cards using Glide.js -->
+  <section class="max-w-6xl mx-auto p-4">
+    <div class="glide">
+      <!-- Track and Slides -->
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          <!-- Cards -->
+          <li class="glide__slide">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden mx-2">
+              <img src="../static/images/index-beach.jpg" alt="Beach" class="w-full">
+              <div class="p-4">
+                <h3 class="text-lg font-semibold">Crystal Clear Beaches</h3>
+                <p class="text-sm text-gray-600">Relax on pristine beaches with turquoise waters and gentle breezes.</p>
+              </div>
+            </div>
+          </li>
+          <li class="glide__slide">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden mx-2">
+              <img src="../static/images/resort.jpg" alt="Resort" class="w-full">
+              <div class="p-4">
+                <h3 class="text-lg font-semibold">Luxury Resorts</h3>
+                <p class="text-sm text-gray-600">Enjoy world-class accommodations with stunning ocean views.</p>
+              </div>
+            </div>
+          </li>
+          <li class="glide__slide">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden mx-2">
+              <img src="../static/images/adventure.jpg" alt="Adventure" class="w-full">
+              <div class="p-4">
+                <h3 class="text-lg font-semibold">Adventure Awaits</h3>
+                <p class="text-sm text-gray-600">Explore hiking trails, snorkeling spots, and more unforgettable experiences.</p>
+              </div>
+            </div>
+          </li>
+          <li class="glide__slide">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden mx-2">
+              <img src="../static/images/culture.png" alt="Culture" class="w-full">
+              <div class="p-4">
+                <h3 class="text-lg font-semibold">Rich Local Culture</h3>
+                <p class="text-sm text-gray-600">Discover Taniti's history, art, music, and delicious island cuisine.</p>
+              </div>
+            </div>
+          </li>
+          <li class="glide__slide">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden mx-2">
+              <img src="../static/images/wildlife.jpg" alt="Wildlife" class="w-full">
+              <div class="p-4">
+                <h3 class="text-lg font-semibold">Wildlife Encounters</h3>
+                <p class="text-sm text-gray-600">Meet vibrant tropical birds, sea turtles, and other native wildlife.</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    <!-- Side Arrows -->
+    <div class="glide__arrows absolute inset-0 flex items-center justify-between px-2 pointer-events-none" data-glide-el="controls">
+      <button class="glide__arrow glide__arrow--left bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center pointer-events-auto" data-glide-dir="<">‹</button>
+      <button class="glide__arrow glide__arrow--right bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center pointer-events-auto" data-glide-dir=">">›</button>
+    </div>
+    </div>
+  </section>
+  </div>
+{{ end }}
+

@@ -1,0 +1,56 @@
+{{ define "base" }}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			{{ if eq .Page "home" }}
+				Home - Taniti Island
+			{{ else if eq .Page "booking" }}
+				Booking - Taniti Island
+			{{ else if eq .Page "transport" }}
+				Transport - Taniti Island
+			{{ else }}
+				Taniti Island
+			{{ end }}
+		</title>
+		<link rel="stylesheet" href="/static/styles.css">
+		<script src="https://unpkg.com/htmx.org@1.9.2"></script>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+		<style>
+			.glide__slide img {
+			height: 350px;
+			object-fit: cover;
+			}
+		</style>
+	</head>
+	<body class="bg-gray-100 min-h-screen flex flex-col">
+		
+	{{ template "header"}}
+
+
+	<main class="flex-1 p-6">
+		{{ if eq .Page "home" }}
+			{{ template "home"}}
+		{{ else if eq .Page "booking" }}
+			{{ template "booking"}}
+		{{ else if eq .Page "transport" }}
+			{{ template "transport"}}
+		{{ else if eq .Page "accommodation" }}
+			{{ template "accommodation"}}
+		{{ else if eq .Page "activities" }}
+			{{ template "activity"}}
+		{{ else }}
+			<p>Page not found</p>
+		{{ end }}
+	</main>
+
+	{{ template "footer"}}
+
+	<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+	<script src="../static/app.js"></script>
+	</body>
+</html>
+{{ end }}
