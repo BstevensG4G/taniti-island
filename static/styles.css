@@ -13,9 +13,17 @@
     text-align: center;
     border-radius: 20px;
   }
+  header img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .dropdown-content {
+    display: none;
+  }
 
   .glide__slide img {
-    height: 350px;
+    height: 300px;
     object-fit: cover;
   }
 

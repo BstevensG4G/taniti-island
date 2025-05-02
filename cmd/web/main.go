@@ -45,7 +45,7 @@ func main() {
 	e.GET("/booking", handlers.BookingHandler)
 	e.GET("/transportation", handlers.TransportHandler)
 	e.GET("/accommodation", handlers.AccommodationHandler)
-	e.GET("/activities", handlers.ActivityHandler)
+	e.GET("/activity", handlers.ActivityHandler)
 
 	e.Logger.Fatal(e.Start(":8080"))
 }

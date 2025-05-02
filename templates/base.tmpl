@@ -11,6 +11,10 @@
 				Booking - Taniti Island
 			{{ else if eq .Page "transport" }}
 				Transport - Taniti Island
+			{{ else if eq .Page "accommodation" }}
+				Accommodation - Taniti Island
+			{{ else if eq .Page "activity" }}
+				Activity - Taniti Island
 			{{ else }}
 				Taniti Island
 			{{ end }}
@@ -40,7 +44,7 @@
 			{{ template "transport"}}
 		{{ else if eq .Page "accommodation" }}
 			{{ template "accommodation"}}
-		{{ else if eq .Page "activities" }}
+		{{ else if eq .Page "activity" }}
 			{{ template "activity"}}
 		{{ else }}
 			<p>Page not found</p>
