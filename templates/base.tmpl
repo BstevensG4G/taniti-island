@@ -38,14 +38,16 @@
 	<main class="flex-1 p-6">
 		{{ if eq .CurrentPath "/" }}
 			{{ template "home"}}
-		{{ else if eq .CurrentPath "/booking" }}
-			{{ template "booking"}}
 		{{ else if eq .CurrentPath "/transportation" }}
 			{{ template "transport"}}
 		{{ else if eq .CurrentPath "/accommodation" }}
 			{{ template "accommodation"}}
 		{{ else if eq .CurrentPath "/activity" }}
 			{{ template "activity"}}
+		{{ else if eq .CurrentPath "/booking" }}
+			{{ template "booking"}}
+		{{ else if eq .CurrentPath "/faq" }}
+			{{ template "faq"}}						
 		{{ else }}
 			<p>Page not found</p>
 		{{ end }}
