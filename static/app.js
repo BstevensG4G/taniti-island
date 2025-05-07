@@ -23,7 +23,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
         </div>
       </div>
     `;
-  }
+  };
 
   const transportCardsData = [
     {
@@ -120,7 +120,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
         </div>
       </div>
     `;
-  }
+  };
 
   const accommodationCardsData = [
     {
@@ -217,7 +217,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
         </div>
       </div>
     `;
-  }
+  };
 
   const activityCardsData = [
     {
@@ -225,28 +225,28 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
       description: "Shuttle to close-up views of the Island's Volcano",
       image: "../static/images/volcano.jpg",
       detailsId: "volcano-details",
-      detailsFile: "details/volcano.html"
+      detailsFile: "../static/details/volcano.html"
     },
     {
       title: "Beach Gear",
       description: "Sun soaked beaches and beach gear rentals.",
       image: "../static/images/beach.jpg",
       detailsId: "beach-details",
-      detailsFile: "/details/beach.tmpl"
+      detailsFile: "../static/details/beach.html"
     },
     {
       title: "Zipline Adventures",
       description: "Soar over the jungles in this daring adventure.",
       image: "../static/images/zipline.jpg",
       detailsId: "zipline-details",
-      detailsFile: "/details/zipline.html"
+      detailsFile: "../static/details/zipline.html"
     },
     {
       title: "Dive and Snorkeling Boat charters",
       description: "Get up-close with the islands sea-life, or just enjoy a sunset on the water.",
       image: "../static/images/boat.jpg",
       detailsId: "boat-details",
-      detailsFile: "/details/boat.html"
+      detailsFile: "../static/details/boat.html"
     }
   ];
 
@@ -291,7 +291,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
         Activity: ["Hiking", "Snorkeling", "Cultural Tour", "Surfing", "Boat Cruise"]
       }
     };
-  }
+  };
 
   function navMenu() {
     let hideTimer
@@ -311,7 +311,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
         clearTimeout(hideTimer)
       }
     }
-  }
+  };
 
   document.querySelectorAll('.group').forEach((group) => {
     let timeout;
@@ -334,4 +334,9 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
         dropdown.classList.add('hidden');
       }, 200);
     });
+  });
+
+  document.getElementById('mobile-menu-toggle').addEventListener('click', () => {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
   });

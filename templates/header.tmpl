@@ -1,64 +1,62 @@
 {{ define "header" }}
-  <!-- Header -->
-  <header class="bg-white shadow-md sticky top-0 z-10">
-    <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
-      <!-- Logo & Title -->
-      <div class="flex items-center gap-4">
+<!-- Header -->
+<header class="bg-white shadow-md sticky top-0 z-10">
+	<div class="max-w-7xl mx-auto flex items-center justify-between p-4">
+		<!-- Logo & Title -->
+		<div class="flex items-center gap-4">
 		<a href="/"><img src="../static/images/logo.png" /></a>
-        <a href="/"><h1 class="text-2xl font-bold">Welcome to Taniti</h1></a>
-      </div>
+		<a href="/"><h1 class="text-2xl font-bold">Welcome to Taniti</h1></a>
+		</div>
 
-	<!-- Desktop Nav -->
-	<nav class="hidden md:flex gap-6">
-	  {{ $path := .CurrentPath }}
-		<div class="relative group" @mouseenter="showMenu('transportation')" @mouseleave="delayedHide">
-			<a href="/transportation" class="{{if eq $path "/transportation"}}font-bold text-lg{{else}}hover:underline{{end}}">Transportation</a>
-			<div x-show="openMenu === 'transportation'" x-transition class="absolute top-full mt-2 left-0 bg-white border rounded shadow w-48 hidden"
-               @mouseenter="cancelHide" @mouseleave="delayedHide">
-			<a href="/transportation#taxi" class="block px-4 py-1 hover:bg-gray-100">Taxi</a>
-			<a href="/transportation#car-rental" class="block px-4 py-1 hover:bg-gray-100">Car Rental</a>
-			<a href="/transportation#bike-rental" class="block px-4 py-1 hover:bg-gray-100">Bike Rental</a>
-			<a href="/transportation#cruise" class="block px-4 py-1 hover:bg-gray-100">Cruise</a>
-			<a href="/transportation#bus" class="block px-4 py-1 hover:bg-gray-100">Bus</a>	
-			<p>{{$path}}</p>		
+		<!-- Desktop Nav -->
+		<nav class="hidden md:flex gap-6">
+		{{ $path := .CurrentPath }}
+			<div class="relative group" @mouseenter="showMenu('transportation')" @mouseleave="delayedHide">
+				<a href="/transportation" class="{{if eq $path "/transportation"}}font-bold text-lg{{else}}hover:underline{{end}}">Transportation</a>
+				<div x-show="openMenu === 'transportation'" x-transition class="absolute top-full mt-2 left-0 bg-white border rounded shadow w-48 hidden"
+				@mouseenter="cancelHide" @mouseleave="delayedHide">
+				<a href="/transportation#taxi" class="block px-4 py-1 hover:bg-gray-100">Taxi</a>
+				<a href="/transportation#car-rental" class="block px-4 py-1 hover:bg-gray-100">Car Rental</a>
+				<a href="/transportation#bike-rental" class="block px-4 py-1 hover:bg-gray-100">Bike Rental</a>
+				<a href="/transportation#cruise" class="block px-4 py-1 hover:bg-gray-100">Cruise</a>
+				<a href="/transportation#bus" class="block px-4 py-1 hover:bg-gray-100">Bus</a>			
+				</div>
 			</div>
-		</div>
-		<div class="relative group" @mouseenter="showMenu('accommodation')" @mouseleave="delayedHide">
-			<a href="/accommodation" class="{{if eq $path "/accommodation"}}font-bold text-lg{{else}}hover:underline{{end}}">Accommodation</a>
-			<div x-show="openMenu === 'accommodation'" x-transition class="absolute top-full mt-2 left-0 bg-white border rounded shadow w-48 hidden"
-               @mouseenter="cancelHide" @mouseleave="delayedHide">
-			<a href="/accommodation#hotel" class="block px-4 py-1 hover:bg-gray-100">Hotel</a>
-			<a href="/accommodation#resort" class="block px-4 py-1 hover:bg-gray-100">Resort</a>			
-			<a href="/accommodation#bnb" class="block px-4 py-1 hover:bg-gray-100">B&B</a>
-			<a href="/accommodation#condo" class="block px-4 py-1 hover:bg-gray-100">condo</a>
+			<div class="relative group" @mouseenter="showMenu('accommodation')" @mouseleave="delayedHide">
+				<a href="/accommodation" class="{{if eq $path "/accommodation"}}font-bold text-lg{{else}}hover:underline{{end}}">Accommodation</a>
+				<div x-show="openMenu === 'accommodation'" x-transition class="absolute top-full mt-2 left-0 bg-white border rounded shadow w-48 hidden"
+				@mouseenter="cancelHide" @mouseleave="delayedHide">
+				<a href="/accommodation#hotel" class="block px-4 py-1 hover:bg-gray-100">Hotel</a>
+				<a href="/accommodation#resort" class="block px-4 py-1 hover:bg-gray-100">Resort</a>			
+				<a href="/accommodation#bnb" class="block px-4 py-1 hover:bg-gray-100">B&B</a>
+				<a href="/accommodation#condo" class="block px-4 py-1 hover:bg-gray-100">condo</a>
+				</div>
 			</div>
-		</div>
-		<div class="relative group" @mouseenter="showMenu('activity')" @mouseleave="delayedHide">
-			<a href="/activity" class="{{if eq $path "/activity"}}font-bold text-lg{{else}}hover:underline{{end}}">Activities</a>
-			<div x-show="openMenu === 'activities'" x-transition class="absolute top-full mt-2 left-0 bg-white border rounded shadow w-48 hidden"
-               @mouseenter="cancelHide" @mouseleave="delayedHide">
-			<a href="/activity#beach" class="block px-4 py-1 hover:bg-gray-100">Volcano</a>
-			<a href="/activity#hiking" class="block px-4 py-1 hover:bg-gray-100">Beach</a>
-			<a href="/activity#snorkeling" class="block px-4 py-1 hover:bg-gray-100">Zipline</a>
-			<a href="/activity#snorkeling" class="block px-4 py-1 hover:bg-gray-100">Diving</a>
+			<div class="relative group" @mouseenter="showMenu('activity')" @mouseleave="delayedHide">
+				<a href="/activity" class="{{if eq $path "/activity"}}font-bold text-lg{{else}}hover:underline{{end}}">Activities</a>
+				<div x-show="openMenu === 'activities'" x-transition class="absolute top-full mt-2 left-0 bg-white border rounded shadow w-48 hidden"
+				@mouseenter="cancelHide" @mouseleave="delayedHide">
+				<a href="/activity#beach" class="block px-4 py-1 hover:bg-gray-100">Volcano</a>
+				<a href="/activity#hiking" class="block px-4 py-1 hover:bg-gray-100">Beach</a>
+				<a href="/activity#snorkeling" class="block px-4 py-1 hover:bg-gray-100">Zipline</a>
+				<a href="/activity#snorkeling" class="block px-4 py-1 hover:bg-gray-100">Diving</a>
+				</div>
 			</div>
-		</div>
-		<a href="/faq" class="{{if eq $path "/faq"}}font-bold text-lg{{else}}hover:underline{{end}}">FAQ</a>
-		<a href="/booking" class="{{if eq $path "/booking"}}font-bold text-lg{{else}}hover:underline{{end}}">Booking</a>
-	</nav>
+			<a href="/faq" class="{{if eq $path "/faq"}}font-bold text-lg{{else}}hover:underline{{end}}">FAQ</a>
+			<a href="/booking" class="{{if eq $path "/booking"}}font-bold text-lg{{else}}hover:underline{{end}}">Booking</a>
+		</nav>
 
-	  <!-- Mobile Hamburger Menu -->
-	<div class="relative group md:hidden">
-		<!-- Hamburger Icon for mobile -->
-		<button class="text-3xl">&#9776;</button>
-		<div class="absolute right-0 mt-2 bg-white shadow-lg rounded-lg p-4 hover:flex flex-col gap-2 z-50 w-48 hidden">
-			<a href="/transportation" class="hover:underline">Transportation</a>
-			<a href="/accommodation" class="hover:underline">Accommodation</a>
-			<a href="/activities" class="hover:underline">Activities</a>
-			<a href="/faq" class="hover:underline">FAQ</a>
-			<a href="/booking" class="hover:underline">Booking</a>
+		<!-- Mobile Hamburger Menu -->
+		<div class="relative md:hidden">
+			<button id="mobile-menu-toggle" class="text-3xl">&#9776;</button>
+			<div id="mobile-menu" class="absolute right-0 mt-2 bg-white shadow-lg rounded-lg p-4 flex-col gap-2 z-50 w-48 hidden">
+				<a href="/transportation" class="hover:underline block">Transportation</a>
+				<a href="/accommodation" class="hover:underline block">Accommodation</a>
+				<a href="/activity" class="hover:underline block">Activities</a>
+				<a href="/faq" class="hover:underline block">FAQ</a>
+				<a href="/booking" class="hover:underline block">Booking</a>
+			</div>
 		</div>
 	</div>
-  </div>
-  </header>
+</header>
 {{ end }}
