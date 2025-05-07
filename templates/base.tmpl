@@ -4,40 +4,41 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>
+  <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
 			{{ if eq .CurrentPath "/" }}
-				Home - Taniti Island
+				<title>Home - Taniti Island</title>
+				<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+				<style>
+					.glide__slide img {
+					height: 350px;
+					object-fit: cover;
+					}
+				</style>
 			{{ else if eq .CurrentPath "/booking" }}
-				Booking - Taniti Island
+				<title>Booking - Taniti Island</title>
 			{{ else if eq .CurrentPath "/transportation" }}
-				Transport - Taniti Island
+				<title>Transport - Taniti Island</title>
 			{{ else if eq .CurrentPath "/accommodation" }}
-				Accommodation - Taniti Island
+				<title>Accommodation - Taniti Island</title>
 			{{ else if eq .CurrentPath "/activity" }}
-				Activity - Taniti Island
+				<title>Activity - Taniti Island</title>
 			{{ else }}
-				Taniti Island
+				<title>Taniti Island</title>
 			{{ end }}
-		</title>
 		<link rel="stylesheet" href="/static/styles.css">
 		<script src="https://unpkg.com/htmx.org@1.9.2"></script>
 		<script src="https://cdn.tailwindcss.com"></script>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
-		<style>
-			.glide__slide img {
-			height: 350px;
-			object-fit: cover;
-			}
-		</style>
 	</head>
 	<body class="bg-gray-100 min-h-screen flex flex-col">
 		
-	{{ template "header"}}
+	{{ template "header" .}}
 
 
 	<main class="flex-1 p-6">
 		{{ if eq .CurrentPath "/" }}
 			{{ template "home"}}
+		 	<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+			<script src="static/home.js"></script>
 		{{ else if eq .CurrentPath "/transportation" }}
 			{{ template "transport"}}
 		{{ else if eq .CurrentPath "/accommodation" }}
@@ -55,7 +56,6 @@
 
 	{{ template "footer"}}
 
-	<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
 	<script src="../static/app.js"></script>
 	</body>
 </html>

@@ -19,7 +19,8 @@
 			<a href="/transportation#car-rental" class="block px-4 py-1 hover:bg-gray-100">Car Rental</a>
 			<a href="/transportation#bike-rental" class="block px-4 py-1 hover:bg-gray-100">Bike Rental</a>
 			<a href="/transportation#cruise" class="block px-4 py-1 hover:bg-gray-100">Cruise</a>
-			<a href="/transportation#bus" class="block px-4 py-1 hover:bg-gray-100">Bus</a>			
+			<a href="/transportation#bus" class="block px-4 py-1 hover:bg-gray-100">Bus</a>	
+			<p>{{$path}}</p>		
 			</div>
 		</div>
 		<div class="relative group" @mouseenter="showMenu('accommodation')" @mouseleave="delayedHide">
@@ -42,8 +43,8 @@
 			<a href="/activity#snorkeling" class="block px-4 py-1 hover:bg-gray-100">Diving</a>
 			</div>
 		</div>
-		<a href="/faq" class="hover:underline">FAQ</a>
-		<a href="/booking" class="hover:underline">Booking</a>
+		<a href="/faq" class="{{if eq $path "/faq"}}font-bold text-lg{{else}}hover:underline{{end}}">FAQ</a>
+		<a href="/booking" class="{{if eq $path "/booking"}}font-bold text-lg{{else}}hover:underline{{end}}">Booking</a>
 	</nav>
 
 	  <!-- Mobile Hamburger Menu -->

@@ -1,9 +1,25 @@
 {{ define "faq" }}
 
-    <div>
-        <!-- Page Title -->
-        <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">Frequently Asked Questions</h1>
+<div>
+    <!-- Page Title -->
+    <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">Frequently Asked Questions</h1>
 
+    {{/* Each question row */}}
+    {{range $i, $q := .Questions}}
+    <div class="border-b py-3 flex items-start justify-between">
+        <span>{{$q.Question}}</span>
+        <button 
+        class="text-blue-600 font-bold text-xl" 
+        aria-label="Toggle Answer"
+        hx-get="/components/faq/q{{$i}}.html"
+        hx-target="#answer{{$i}}" 
+        hx-swap="toggle">
+        +
+        </button>
     </div>
+
+    <div id="answer{{$i}}" class="ml-4 text-sm text-gray-700 hidden"></div>
+    {{end}}
+</div>
 
 {{ end }}

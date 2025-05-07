@@ -8,18 +8,18 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
 
           <div class="mt-4 flex flex-wrap gap-2">
             <button 
-              class="bg-blue-100 text-blue-800 px-4 py-2 rounded hover:bg-blue-200 text-sm"
-              hx-get="${detailsFile}"
-              hx-target="#${detailsId}"
-              hx-swap="outerHTML">
+              class="details-toggle bg-blue-100 text-blue-800 px-4 py-2 rounded hover:bg-blue-200 text-sm"
+              data-details-id="${detailsId}"
+              data-details-url="${detailsFile}">
               Details
             </button>
+
             <a href="/booking" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 text-sm">
               Book Now!
             </a>
-          </div>
 
-          <div id="${detailsId}" class="mt-4 text-sm text-gray-700 hidden"></div>
+          </div>
+          <div id="${detailsId}" class="text-left mt-4 text-sm text-gray-700 hidden"></div>
         </div>
       </div>
     `;
@@ -31,48 +31,70 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
       description: "Available 24/7 throughout the island for quick and convenient travel.",
       image: "../static/images/taxi.jpg",
       detailsId: "taxi-details",
-      detailsFile: "details/taxi.html"
+      detailsFile: "../static/details/taxi.html"
     },
     {
       title: "Rental Cars",
       description: "Explore Taniti on your own schedule with car rental options at the airport and downtown.",
       image: "../static/images/rental.jpg",
       detailsId: "rental-details",
-      detailsFile: "/details/car-rental.tmpl"
+      detailsFile: "../static/details/rental.html"
     },
     {
       title: "Bicycle Rentals",
       description: "Eco-friendly and perfect for exploring the island’s trails and beachfronts.",
       image: "../static/images/bike.jpg",
       detailsId: "bike-details",
-      detailsFile: "/details/bike.html"
+      detailsFile: "../static/details/bike.html"
     },
     {
       title: "Island Cruise",
       description: "Scenic and reliable cruise ship service between the mainland on a weekly basis.",
       image: "../static/images/cruise.jpg",
       detailsId: "cruise-details",
-      detailsFile: "/details/cruise.html"
+      detailsFile: "../static/details/cruise.html"
     },
     {
       title: "Bus",
       description: "Affordable public transport with regular schedules around major locations.",
       image: "../static/images/bus.jpg",
       detailsId: "bus-details",
-      detailsFile: "/details/bus.html"
+      detailsFile: "../static/details/bus.html"
     }
   ];
 
   window.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('transport-cards') != null) {
-      const grid = document.getElementById('transport-cards');
-
+    const grid = document.getElementById('transport-cards');
+    if (grid) {
       transportCardsData.forEach(card => {
-        grid.innerHTML += renderTransportCard(card);
+        grid.insertAdjacentHTML('beforeend', renderTransportCard(card));
+      });
+  
+      htmx.process(grid);
+  
+      grid.addEventListener('click', async (e) => {
+        const btn = e.target.closest('.details-toggle');
+        if (!btn) return;
+  
+        const detailsId = btn.dataset.detailsId;
+        const detailsUrl = btn.dataset.detailsUrl;
+        const detailsEl = document.getElementById(detailsId);
+  
+        if (!detailsEl) return;
+  
+        if (detailsEl.classList.contains('hidden')) {
+          await htmx.ajax('GET', detailsUrl, {
+            target: `#${detailsId}`,
+            swap: 'innerHTML',
+          });
+          detailsEl.classList.remove('hidden');
+        } else {
+          detailsEl.classList.add('hidden');
+        }
       });
     }
   });
-
+ 
   function renderAccommodationCard({ title, description, image, detailsId, detailsFile }) {
     return `
       <div class="bg-white shadow-lg rounded-lg overflow-hidden">
@@ -83,18 +105,18 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
 
           <div class="mt-4 flex flex-wrap gap-2">
             <button 
-              class="bg-blue-100 text-blue-800 px-4 py-2 rounded hover:bg-blue-200 text-sm"
-              hx-get="${detailsFile}"
-              hx-target="#${detailsId}"
-              hx-swap="outerHTML">
+              class="details-toggle bg-blue-100 text-blue-800 px-4 py-2 rounded hover:bg-blue-200 text-sm"
+              data-details-id="${detailsId}"
+              data-details-url="${detailsFile}">
               Details
             </button>
+
             <a href="/booking" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 text-sm">
               Book Now!
             </a>
           </div>
 
-          <div id="${detailsId}" class="mt-4 text-sm text-gray-700 hidden"></div>
+          <div id="${detailsId}" class="text-left mt-4 text-sm text-gray-700 hidden"></div>
         </div>
       </div>
     `;
@@ -106,37 +128,66 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
       description: "Great location choice and daily cleaning on a budget.",
       image: "../static/images/hotel.jpg",
       detailsId: "hotel-details",
-      detailsFile: "details/hotel.html"
+      detailsFile: "../static/details/hotel.html"
     },
     {
       title: "Resort",
       description: "Enjoy the resort amenities and clean rooms.",
       image: "../static/images/resort.jpg",
       detailsId: "resort-details",
-      detailsFile: "/details/resort.tmpl"
+      detailsFile: "../static/details/resort.html"
     },
     {
       title: "Bed and Breakfast",
       description: "Comfort and welcoming hosts breakfast included in pricing.",
-      image: "../static/images/house.jpg",
-      detailsId: "house-details",
-      detailsFile: "/details/house.html"
+      image: "../static/images/bnb.jpg",
+      detailsId: "bnb-details",
+      detailsFile: "../static/details/bnb.html"
     },
     {
       title: "Condo",
       description: "Privacy and Convienance located close to beaches.",
       image: "../static/images/condo.jpg",
       detailsId: "condo-details",
-      detailsFile: "/details/condo.html"
+      detailsFile: "../static/details/condo.html"
+    },
+    {
+    title: "Private Home",
+    description: "Privacy beyond compare, nearest neighbor is 100yds plus.",
+    image: "../static/images/house.jpg",
+    detailsId: "house-details",
+    detailsFile: "../static/details/house.html"
     }
   ];
 
   window.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('accommodation-cards') != null) {
-      const grid = document.getElementById('accommodation-cards');
-
+    const grid = document.getElementById('accommodation-cards');
+    if (grid) {
       accommodationCardsData.forEach(card => {
-        grid.innerHTML += renderAccommodationCard(card);
+        grid.insertAdjacentHTML('beforeend', renderAccommodationCard(card));
+      });
+  
+      htmx.process(grid);
+  
+      grid.addEventListener('click', async (e) => {
+        const btn = e.target.closest('.details-toggle');
+        if (!btn) return;
+  
+        const detailsId = btn.dataset.detailsId;
+        const detailsUrl = btn.dataset.detailsUrl;
+        const detailsEl = document.getElementById(detailsId);
+  
+        if (!detailsEl) return;
+  
+        if (detailsEl.classList.contains('hidden')) {
+          await htmx.ajax('GET', detailsUrl, {
+            target: `#${detailsId}`,
+            swap: 'innerHTML',
+          });
+          detailsEl.classList.remove('hidden');
+        } else {
+          detailsEl.classList.add('hidden');
+        }
       });
     }
   });
@@ -151,12 +202,12 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
 
           <div class="mt-4 flex flex-wrap gap-2">
             <button 
-              class="bg-blue-100 text-blue-800 px-4 py-2 rounded hover:bg-blue-200 text-sm"
-              hx-get="${detailsFile}"
-              hx-target="#${detailsId}"
-              hx-swap="outerHTML">
+              class="details-toggle bg-blue-100 text-blue-800 px-4 py-2 rounded hover:bg-blue-200 text-sm"
+              data-details-id="${detailsId}"
+              data-details-url="${detailsFile}">
               Details
             </button>
+
             <a href="/booking" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 text-sm">
               Book Now!
             </a>
@@ -200,24 +251,36 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
   ];
 
   window.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('activity-cards') != null) {
-      const grid = document.getElementById('activity-cards');
-
+    const grid = document.getElementById('activity-cards');
+    if (grid) {
       activityCardsData.forEach(card => {
-        grid.innerHTML += renderActivityCard(card);
+        grid.insertAdjacentHTML('beforeend', renderActivityCard(card));
+      });
+  
+      htmx.process(grid);
+  
+      grid.addEventListener('click', async (e) => {
+        const btn = e.target.closest('.details-toggle');
+        if (!btn) return;
+  
+        const detailsId = btn.dataset.detailsId;
+        const detailsUrl = btn.dataset.detailsUrl;
+        const detailsEl = document.getElementById(detailsId);
+  
+        if (!detailsEl) return;
+  
+        if (detailsEl.classList.contains('hidden')) {
+          await htmx.ajax('GET', detailsUrl, {
+            target: `#${detailsId}`,
+            swap: 'innerHTML',
+          });
+          detailsEl.classList.remove('hidden');
+        } else {
+          detailsEl.classList.add('hidden');
+        }
       });
     }
   });
-
-  new Glide('.glide', {
-    type: 'carousel',
-    perView: 1,
-    breakpoints: {
-      640: { perView: 1 },
-      768: { perView: 2 },
-      1024: { perView: 3 }
-    }
-  }).mount();
 
   function bookingForm() {
     return {
