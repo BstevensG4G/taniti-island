@@ -116,10 +116,16 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
     }
   });
  
-  function renderAccommodationCard({ title, description, image, detailsId, detailsFile }) {
+  function renderAccommodationCard({ title, description, image, detailsId, detailsFile, attribImgLink, attribName, attribTitle }) {
     return `
       <div class="bg-white shadow-lg rounded-lg overflow-hidden">
         <img src="${image}" alt="${title}" class="w-full h-48 object-cover">
+        <div class="text-xs">
+          <p>Photo 
+          <a class="italic" rel="nofollow" href="${attribImgLink}">"${attribTitle}"</a></p>
+          by "${attribName}" 
+          <a rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">CC BY-ND 3.0</a>
+        </div>
         <div class="p-4">
           <h3 class="text-lg font-semibold">${title}</h3>
           <p class="text-sm text-gray-600">${description}</p>
@@ -149,35 +155,50 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
       description: "Great location choice and daily cleaning on a budget.",
       image: "../static/images/hotel.jpg",
       detailsId: "hotel-details",
-      detailsFile: "../static/details/hotel.html"
+      detailsFile: "../static/details/hotel.html",
+      attribImgLink: "https://upload.wikimedia.org/wikipedia/commons/8/83/Shutters_on_the_Beach_Hotel_2015.jpg",
+      attribName: "Tim Street-Porter",
+      attribTitle: "Shutters on the Beach"
     },
     {
       title: "Resort",
       description: "Enjoy the resort amenities and clean rooms.",
       image: "../static/images/resort.jpg",
       detailsId: "resort-details",
-      detailsFile: "../static/details/resort.html"
+      detailsFile: "../static/details/resort.html",
+      attribImgLink: "https://upload.wikimedia.org/wikipedia/en/f/f3/Hotel_Atlantis_at_Sunset%2C_The_Palm_-_Dubai_%2849510861268%29.jpg",
+      attribName: "Sergio Boscaino",
+      attribTitle: "Hotel Atlantis at Sunset"
     },
     {
       title: "Bed and Breakfast",
       description: "Comfort and welcoming hosts breakfast included in pricing.",
       image: "../static/images/bnb.jpg",
       detailsId: "bnb-details",
-      detailsFile: "../static/details/bnb.html"
+      detailsFile: "../static/details/bnb.html",
+      attribImgLink: "https://upload.wikimedia.org/wikipedia/commons/9/9a/The_BEACH_HOUSE_Hotel_%2834990194495%29.jpg",
+      attribName: "Prayitno",
+      attribTitle: "Roatan Island"
     },
     {
       title: "Condo",
       description: "Privacy and Convienance located close to beaches.",
       image: "../static/images/condo.jpg",
       detailsId: "condo-details",
-      detailsFile: "../static/details/condo.html"
+      detailsFile: "../static/details/condo.html",
+      attribImgLink: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Condado_Beach_-_San_Juan.jpg",
+      attribName: "P. Hughes",
+      attribTitle: "La Concha Hotel"
     },
     {
     title: "Private Home",
     description: "Privacy beyond compare, nearest neighbor is 100yds plus.",
     image: "../static/images/house.jpg",
     detailsId: "house-details",
-    detailsFile: "../static/details/house.html"
+    detailsFile: "../static/details/house.html",
+    attribImgLink: "https://upload.wikimedia.org/wikipedia/commons/0/05/Our_fale_Taufua_Beach_Fales_Samoa.jpg",
+    attribName: "amanderson2",
+    attribTitle: "Samoa"
     }
   ];
 
@@ -213,10 +234,16 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
     }
   });
 
-  function renderActivityCard({ title, description, image, detailsId, detailsFile }) {
+  function renderActivityCard({ title, description, image, detailsId, detailsFile, attribImgLink, attribName, attribTitle }) {
     return `
       <div class="bg-white shadow-lg rounded-lg overflow-hidden">
         <img src="${image}" alt="${title}" class="w-full h-48 object-cover">
+        <div class="text-xs">
+          <p>Photo 
+          <a class="italic" rel="nofollow" href="${attribImgLink}">"${attribTitle}"</a></p>
+          by "${attribName}" 
+          <a rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">CC BY-ND 3.0</a>
+        </div>
         <div class="p-4">
           <h3 class="text-lg font-semibold">${title}</h3>
           <p class="text-sm text-gray-600">${description}</p>
@@ -246,28 +273,40 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
       description: "Shuttle to close-up views of the Island's Volcano",
       image: "../static/images/volcano.jpg",
       detailsId: "volcano-details",
-      detailsFile: "../static/details/volcano.html"
+      detailsFile: "../static/details/volcano.html",
+      attribImgLink: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Volcan_%28173628433%29.jpeg",
+      attribName: "Alexandre DIJOUX",
+      attribTitle: "Volcan"
     },
     {
       title: "Beach Gear",
       description: "Sun soaked beaches and beach gear rentals.",
       image: "../static/images/beach.jpg",
       detailsId: "beach-details",
-      detailsFile: "../static/details/beach.html"
+      detailsFile: "../static/details/beach.html",
+      attribImgLink: "https://upload.wikimedia.org/wikipedia/commons/3/31/Tropical_beach_sunset.jpg",
+      attribName: "Aaron Escobar",
+      attribTitle: "Tropical Beach Sunset"
     },
     {
       title: "Zipline Adventures",
       description: "Soar over the jungles in this daring adventure.",
       image: "../static/images/zipline.jpg",
       detailsId: "zipline-details",
-      detailsFile: "../static/details/zipline.html"
+      detailsFile: "../static/details/zipline.html",
+      attribImgLink: "https://unsplash.com/photos/a-woman-on-a-zip-line-in-the-jungle-akR-1957oQA",
+      attribName: "Lisa Marie Theck",
+      attribTitle: "a woman on a zip line in the jungle"
     },
     {
       title: "Dive and Snorkeling Boat charters",
       description: "Get up-close with the islands sea-life, or just enjoy a sunset on the water.",
       image: "../static/images/boat.jpg",
       detailsId: "boat-details",
-      detailsFile: "../static/details/boat.html"
+      detailsFile: "../static/details/boat.html",
+      attribImgLink: "https://upload.wikimedia.org/wikipedia/commons/1/18/Dive_BVI%2C_Scrub_Island_Resort%2C_Spa_%26_Marina.jpg",
+      attribName: "Lheld1023",
+      attribTitle: "Dive BVI"
     }
   ];
 
