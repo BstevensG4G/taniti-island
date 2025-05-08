@@ -1,7 +1,13 @@
-function renderTransportCard({ title, description, image, detailsId, detailsFile }) {
+function renderTransportCard({ title, description, image, detailsId, detailsFile, attribImgLink, attribName, attribTitle }) {
     return `
       <div class="bg-white shadow-lg rounded-lg overflow-hidden">
         <img src="${image}" alt="${title}" class="w-full h-48 object-cover">
+        <div class="text-xs">
+          <p>Photo 
+          <a class="italic" rel="nofollow" href="${attribImgLink}">"${attribTitle}"</a></p>
+          by "${attribName}" 
+          <a rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">CC BY-ND 3.0</a>
+        </div>
         <div class="p-4">
           <h3 class="text-lg font-semibold">${title}</h3>
           <p class="text-sm text-gray-600">${description}</p>
@@ -31,35 +37,50 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
       description: "Available 24/7 throughout the island for quick and convenient travel.",
       image: "../static/images/taxi.jpg",
       detailsId: "taxi-details",
-      detailsFile: "../static/details/taxi.html"
+      detailsFile: "../static/details/taxi.html",
+      attribImgLink: "https://upload.wikimedia.org/wikipedia/commons/e/e7/PhuketStreet.jpg",
+      attribName: "Martin Pot",
+      attribTitle: "Row of Tuk-Tuks"
     },
     {
       title: "Rental Cars",
       description: "Explore Taniti on your own schedule with car rental options at the airport and downtown.",
       image: "../static/images/rental.jpg",
       detailsId: "rental-details",
-      detailsFile: "../static/details/rental.html"
+      detailsFile: "../static/details/rental.html",
+      attribImgLink: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Hertz_car_rental_office_Vinyard_Haven.jpg",
+      attribName: "Whoisjohngalt",
+      attribTitle: "Hertz office, Martha's Vineyard"
     },
     {
       title: "Bicycle Rentals",
       description: "Eco-friendly and perfect for exploring the island’s trails and beachfronts.",
       image: "../static/images/bike.jpg",
       detailsId: "bike-details",
-      detailsFile: "../static/details/bike.html"
+      detailsFile: "../static/details/bike.html",
+      attribImgLink: "https://upload.wikimedia.org/wikipedia/commons/c/cc/Biki_in_Waikiki_%2828159018639%29.jpg",
+      attribName: "Daniel Ramirez",
+      attribTitle: "Biki in Waikiki"
     },
     {
       title: "Island Cruise",
       description: "Scenic and reliable cruise ship service between the mainland on a weekly basis.",
       image: "../static/images/cruise.jpg",
       detailsId: "cruise-details",
-      detailsFile: "../static/details/cruise.html"
+      detailsFile: "../static/details/cruise.html",
+      attribImgLink: "https://upload.wikimedia.org/wikipedia/commons/b/bd/Helsingborg_Tropical_Beach.jpg",
+      attribName: "Jsdo1980",
+      attribTitle: "M/S Constellation"
     },
     {
       title: "Bus",
       description: "Affordable public transport with regular schedules around major locations.",
       image: "../static/images/bus.jpg",
       detailsId: "bus-details",
-      detailsFile: "../static/details/bus.html"
+      detailsFile: "../static/details/bus.html",
+      attribImgLink: "https://upload.wikimedia.org/wikipedia/commons/7/7d/Constanta_pink_bus.JPG",
+      attribName: "Acaro",
+      attribTitle: "Pink bus in Constanţa"
     }
   ];
 
