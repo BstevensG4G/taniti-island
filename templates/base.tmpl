@@ -28,9 +28,18 @@
 		<link rel="stylesheet" href="/static/styles.css">
 		<script src="https://unpkg.com/htmx.org@1.9.2"></script>
 		<script src="https://cdn.tailwindcss.com"></script>
+		<script src="https://unpkg.com/htmx.org@1.9.2"></script>
 	</head>
 	<body class="bg-orange-50 min-h-screen flex flex-col">
-		
+<script>
+  document.body.addEventListener("htmx:afterRequest", (e) => {
+    console.log("HTMX response:", e.detail.xhr.responseText);
+  });
+
+  document.body.addEventListener("htmx:responseError", (e) => {
+    console.error("HTMX failed to load:", e.detail.xhr);
+  });
+</script>		
 	{{ template "header" .}}
 
 
@@ -48,7 +57,8 @@
 		{{ else if eq .CurrentPath "/booking" }}
 			{{ template "booking"}}
 		{{ else if eq .CurrentPath "/faq" }}
-			{{ template "faq"}}						
+			{{ template "faq" .}}
+			<script src="static/faq.js"></script>						
 		{{ else }}
 			<p>Page not found</p>
 		{{ end }}
