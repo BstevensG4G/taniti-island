@@ -31,15 +31,7 @@
 		<script src="https://unpkg.com/htmx.org@1.9.2"></script>
 	</head>
 	<body class="bg-orange-50 min-h-screen flex flex-col">
-<script>
-  document.body.addEventListener("htmx:afterRequest", (e) => {
-    console.log("HTMX response:", e.detail.xhr.responseText);
-  });
-
-  document.body.addEventListener("htmx:responseError", (e) => {
-    console.error("HTMX failed to load:", e.detail.xhr);
-  });
-</script>		
+	
 	{{ template "header" .}}
 
 
@@ -56,9 +48,12 @@
 			{{ template "activity"}}
 		{{ else if eq .CurrentPath "/booking" }}
 			{{ template "booking"}}
+			<script src="static/booking.js"></script>
 		{{ else if eq .CurrentPath "/faq" }}
 			{{ template "faq" .}}
-			<script src="static/faq.js"></script>						
+			<script src="static/faq.js"></script>
+		{{ else if eq .CurrentPath "/contact" }}
+			{{ template "contact"}}					
 		{{ else }}
 			<p>Page not found</p>
 		{{ end }}

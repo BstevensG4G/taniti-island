@@ -280,7 +280,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
     },
     {
       title: "Beach Gear",
-      description: "Sun soaked beaches and beach gear rentals.",
+      description: "Sun soaked beaches and beach gear rentals. Nearby scuba shops and snorkeling gear.",
       image: "../static/images/beach.jpg",
       detailsId: "beach-details",
       detailsFile: "../static/details/beach.html",
