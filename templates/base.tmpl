@@ -47,13 +47,13 @@
 		{{ else if eq .CurrentPath "/activity" }}
 			{{ template "activity"}}
 		{{ else if eq .CurrentPath "/booking" }}
-			{{ template "booking"}}
+			{{ template "booking" .}}
 			<script src="static/booking.js"></script>
 		{{ else if eq .CurrentPath "/faq" }}
 			{{ template "faq" .}}
 			<script src="static/faq.js"></script>
 		{{ else if eq .CurrentPath "/contact" }}
-			{{ template "contact"}}					
+			{{ template "contact" .}}					
 		{{ else }}
 			<p>Page not found</p>
 		{{ end }}
