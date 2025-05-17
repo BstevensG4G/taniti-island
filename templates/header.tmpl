@@ -15,10 +15,10 @@
 				<a href="/transportation" class="{{if eq $path "/transportation"}}font-bold text-lg{{else}}hover:underline{{end}}">Transportation</a>
 				<div x-show="openMenu === 'transportation'" x-transition class="absolute top-full mt-2 left-0 bg-white border rounded shadow w-48 hidden"
 				@mouseenter="cancelHide" @mouseleave="delayedHide">
-				<a href="/transportation#taxi" class="block px-4 py-1 hover:bg-gray-100">Taxi</a>
-				<a href="/transportation#car-rental" class="block px-4 py-1 hover:bg-gray-100">Car Rental</a>
-				<a href="/transportation#bike-rental" class="block px-4 py-1 hover:bg-gray-100">Bike Rental</a>
-				<a href="/transportation#cruise" class="block px-4 py-1 hover:bg-gray-100">Cruise</a>
+				<a href="/transportation#taxi" class="block px-4 py-1 hover:bg-gray-100">Taxi Services</a>
+				<a href="/transportation#car-rental" class="block px-4 py-1 hover:bg-gray-100">Car Rentals</a>
+				<a href="/transportation#bike-rental" class="block px-4 py-1 hover:bg-gray-100">Bike Rentals</a>
+				<a href="/transportation#cruise" class="block px-4 py-1 hover:bg-gray-100">Cruise Ship</a>
 				<a href="/transportation#bus" class="block px-4 py-1 hover:bg-gray-100">Bus</a>			
 				</div>
 			</div>
@@ -30,6 +30,7 @@
 				<a href="/accommodation#resort" class="block px-4 py-1 hover:bg-gray-100">Resort</a>			
 				<a href="/accommodation#bnb" class="block px-4 py-1 hover:bg-gray-100">B&B</a>
 				<a href="/accommodation#condo" class="block px-4 py-1 hover:bg-gray-100">Condo</a>
+				<a href="/accommodation#home" class="block px-4 py-1 hover:bg-gray-100">Private Home</a>
 				</div>
 			</div>
 			<div class="relative group" @mouseenter="showMenu('activity')" @mouseleave="delayedHide">

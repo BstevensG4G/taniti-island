@@ -1,4 +1,4 @@
-function renderTransportCard({ title, description, image, detailsId, detailsFile, attribImgLink, attribName, attribTitle }) {
+function renderTransportCard({ id, title, description, image, detailsId, detailsFile, attribImgLink, attribName, attribTitle }) {
     return `
       <div class="bg-white shadow-lg rounded-lg overflow-hidden">
         <img src="${image}" alt="${title}" class="w-full h-48 object-cover">
@@ -8,7 +8,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
           by "${attribName}" 
           <a rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">CC BY-ND 3.0</a>
         </div>
-        <div class="p-4">
+        <div id="${id}" class="p-4">
           <h3 class="text-lg font-semibold">${title}</h3>
           <p class="text-sm text-gray-600">${description}</p>
 
@@ -33,6 +33,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
 
   const transportCardsData = [
     {
+      id:"taxi",
       title: "Taxi Services",
       description: "Available 24/7 throughout the island for quick and convenient travel.",
       image: "../static/images/taxi.jpg",
@@ -43,7 +44,8 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
       attribTitle: "Row of Tuk-Tuks"
     },
     {
-      title: "Rental Cars",
+      id:"car",
+      title: "Car Rentals",
       description: "Explore Taniti on your own schedule with car rental options at the airport and downtown.",
       image: "../static/images/rental.jpg",
       detailsId: "rental-details",
@@ -53,7 +55,8 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
       attribTitle: "Hertz office, Martha's Vineyard"
     },
     {
-      title: "Bicycle Rentals",
+      id:"bike",
+      title: "Bike Rentals",
       description: "Eco-friendly and perfect for exploring the island’s trails and beachfronts.",
       image: "../static/images/bike.jpg",
       detailsId: "bike-details",
@@ -63,7 +66,8 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
       attribTitle: "Biki in Waikiki"
     },
     {
-      title: "Island Cruise",
+      id:"cruise",
+      title: "Cruise Ship",
       description: "Scenic and reliable cruise ship service between the mainland on a weekly basis.",
       image: "../static/images/cruise.jpg",
       detailsId: "cruise-details",
@@ -73,6 +77,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
       attribTitle: "M/S Constellation"
     },
     {
+      id:"bus",
       title: "Bus",
       description: "Affordable public transport with regular schedules around major locations.",
       image: "../static/images/bus.jpg",
@@ -116,7 +121,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
     }
   });
  
-  function renderAccommodationCard({ title, description, image, detailsId, detailsFile, attribImgLink, attribName, attribTitle }) {
+  function renderAccommodationCard({ id, title, description, image, detailsId, detailsFile, attribImgLink, attribName, attribTitle }) {
     return `
       <div class="bg-white shadow-lg rounded-lg overflow-hidden">
         <img src="${image}" alt="${title}" class="w-full h-48 object-cover">
@@ -126,7 +131,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
           by "${attribName}" 
           <a rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">CC BY-ND 3.0</a>
         </div>
-        <div class="p-4">
+        <div id="${id}" class="p-4">
           <h3 class="text-lg font-semibold">${title}</h3>
           <p class="text-sm text-gray-600">${description}</p>
 
@@ -151,6 +156,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
 
   const accommodationCardsData = [
     {
+      id: "hotel",
       title: "Hotel",
       description: "Great location choice and daily cleaning on a budget.",
       image: "../static/images/hotel.jpg",
@@ -161,6 +167,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
       attribTitle: "Shutters on the Beach"
     },
     {
+      id: "resort",
       title: "Resort",
       description: "Enjoy the resort amenities and clean rooms.",
       image: "../static/images/resort.jpg",
@@ -171,7 +178,8 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
       attribTitle: "Hotel Atlantis at Sunset"
     },
     {
-      title: "Bed and Breakfast",
+      id: "bnb",
+      title: "Bed & Breakfast",
       description: "Comfort and welcoming hosts breakfast included in pricing.",
       image: "../static/images/bnb.jpg",
       detailsId: "bnb-details",
@@ -181,6 +189,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
       attribTitle: "Roatan Island"
     },
     {
+      id: "condo",
       title: "Condo",
       description: "Privacy and Convienance located close to beaches.",
       image: "../static/images/condo.jpg",
@@ -191,6 +200,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
       attribTitle: "La Concha Hotel"
     },
     {
+    id: "home",
     title: "Private Home",
     description: "Privacy beyond compare, nearest neighbor is 100yds plus.",
     image: "../static/images/house.jpg",
@@ -234,7 +244,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
     }
   });
 
-  function renderActivityCard({ title, description, image, detailsId, detailsFile, attribImgLink, attribName, attribTitle }) {
+  function renderActivityCard({ id, title, description, image, detailsId, detailsFile, attribImgLink, attribName, attribTitle }) {
     return `
       <div class="bg-white shadow-lg rounded-lg overflow-hidden">
         <img src="${image}" alt="${title}" class="w-full h-48 object-cover">
@@ -244,7 +254,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
           by "${attribName}" 
           <a rel="nofollow" href="http://creativecommons.org/licenses/by/3.0/">CC BY-ND 3.0</a>
         </div>
-        <div class="p-4">
+        <div id="${id}" class="p-4">
           <h3 class="text-lg font-semibold">${title}</h3>
           <p class="text-sm text-gray-600">${description}</p>
 
@@ -269,6 +279,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
 
   const activityCardsData = [
     {
+      id: "volcano",
       title: "Volcano Tours",
       description: "Shuttle to close-up views of the Island's Volcano",
       image: "../static/images/volcano.jpg",
@@ -279,6 +290,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
       attribTitle: "Volcan"
     },
     {
+      id: "beach",
       title: "Beach Gear",
       description: "Sun soaked beaches and beach gear rentals. Nearby scuba shops and snorkeling gear.",
       image: "../static/images/beach.jpg",
@@ -289,6 +301,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
       attribTitle: "Tropical Beach Sunset"
     },
     {
+      id: "zipline",
       title: "Zipline Adventures",
       description: "Soar over the jungles in this daring adventure.",
       image: "../static/images/zipline.jpg",
@@ -299,6 +312,7 @@ function renderTransportCard({ title, description, image, detailsId, detailsFile
       attribTitle: "a woman on a zip line in the jungle"
     },
     {
+      id: "dive",
       title: "Dive and Snorkeling Boat charters",
       description: "Get up-close with the islands sea-life, or just enjoy a sunset on the water.",
       image: "../static/images/boat.jpg",
