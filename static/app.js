@@ -360,9 +360,9 @@ function renderTransportCard({ id, title, description, image, detailsId, details
     return {
       category: '',
       options: {
-        Transportation: ["Taxi", "Rental Car", "Scooter", "Ferry", "Bus", "Bicycle"],
-        Accommodation: ["Resort", "Hotel", "Hostel", "Vacation Rental", "Eco Lodge"],
-        Activity: ["Hiking", "Snorkeling", "Cultural Tour", "Surfing", "Boat Cruise"]
+        Transportation: ["Taxi Services", "Car Rentals", "Bike Rentals", "Cruise Ship", "Bus"],
+        Accommodation: ["Hotel", "Resort", "Bed & Breakfast", "Condo", "Private Home"],
+        Activity: ["Volcano Tours", "Beach Gear", "Zipline Adventure", "Dive & Snorkeling"]
       }
     };
   };
